@@ -1,0 +1,142 @@
+:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+}
+body{
+    background-color: #2099F1;
+    color: #fff;
+    
+}
+.main__content{
+    height: 100vh;
+}
+.main__info{
+    margin-top: calc(100vh*0.2);
+}
+.main__image{
+    overflow: hidden;
+    height: 100vh;
+}
+.main__image img{
+    opacity: 0.8;
+    width: 100%;
+    animation: opacityAppearance 3s ;
+}
+.main__header{
+    margin-top: 30px;
+    animation: elementAppearance 600ms ease-out;
+    font-size: 3rem;
+}
+.main__subheader{
+    animation: elementAppearance 300ms ease-out;
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+.text{
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+.main__text{
+    animation: elementAppearance 900ms ease-out;
+    margin-top: 50px;
+}
+
+.modal{
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100vh;
+    width: 100vw;
+    display: none;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.modal__dialog{
+    width: 500px;
+    height: 550px;
+    min-height: 460px;
+    background-color: #37ABFF;
+    border-radius: 5%;
+}
+.modal__btn-close{
+    width: 32px;
+    height: 32px;
+    background: url('../icons/closeIcon.svg');
+    position: relative;
+    left: 90%;
+    top: 20px;
+    transition: 200ms;
+}
+.modal__btn-close:hover{
+    transform: scale(1.15);
+}
+
+.modal__content form input{
+    width: 90%;
+    height: 60px;
+    margin: 5% 0 0 5%;
+    border: none ;
+    border-radius: 8px;
+}
+.form-button{
+    background-color: #5EFF8B;
+}
+.form-button:hover{
+    background-color: #30ee66;
+}
+.message-form{
+    margin: 15px 0 0 5%;
+
+}
+@media (max-width: 991px){
+    .main__image{
+        overflow: hidden;
+        height: 100%;
+    }
+    .main__info, .main__image{
+        margin-top: 10vh;
+    }
+    .main__content{
+        height: 100%;
+    }
+}
+@media (max-width: 500px){
+    .modal__dialog{
+        width: 80%;
+    }
+
+}
+@media (max-height: 500px){
+    .modal{
+        align-items:flex-start;
+    }
+}
+.modal__header{
+    font-size: 2rem;
+    margin: 5% 0 0 5%;
+
+}
+.modal__subheader{
+    margin-left:5%;
+    font-weight: 300;
+}
+
+
+@keyframes opacityAppearance{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0.8;
+    }
+}
+@keyframes elementAppearance{
+    0%{
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100%{
+        opacity: 1;
+    }
+}
