@@ -18,11 +18,13 @@ $('#sendForm').on('click',()=>{
     let userName = $("[name='userName']").val(),
         userPhone = $("[name='userPhone']").val(),
         userMail = $("[name='userMail']").val();
+        symbols = ["<", ">","=", "(", ")", ";", "/", "%"];
+    $('.modal__message-form').css('background-color', '#E50000');
     if (userName.length<2 || userPhone.length<6 || userMail.length<5){
-        $('.message-form').text('Некорректные данные. Ошибка отправки.');
+        $('.modal__message-form').text('Некорректные данные. Ошибка отправки.');
         return false;
     }
-    $('.message-form').text('');
+    $('.modal__message-form').text('');
 
     $.ajax({
         url: 'static/scripts/formProcessor.php',
@@ -38,13 +40,25 @@ $('#sendForm').on('click',()=>{
             $('#sendForm').prop('disabled', true);
         },
         success: (data)=>{
-            alert(data);
+            flag = false;
+            data = JSON.parse(data);
+            if (data['phone']=='invalid' || data['mail']=='invalid'){
+                $('.modal__message-form').text('Некорректные данные. Ошибка отправки.');
+            }else{
+                $('.modal__message-form').css('background-color', '#5EFF8B');
+                $('.modal__message-form').text('Успешно');
+                setTimeout(()=>{
+                    $('.modal').css('display','none');
+                }, 2000);
+            }
             $('#sendForm').prop('disabled', false);
             $("[name='userForm']").trigger('reset');
-            $('.message-form').text('Успешно');
         }
 
     })
 
 
 })
+
+
+"<", ">","=", "(", ")", ";", "/", "%"

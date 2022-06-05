@@ -82,8 +82,9 @@ body{
 .form-button:hover{
     background-color: #30ee66;
 }
-.message-form{
+.modal__message-form{
     margin: 15px 0 0 5%;
+    width: 70%;
 
 }
 @media (max-width: 991px){
